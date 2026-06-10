@@ -1,4 +1,4 @@
-Authentication System
--- Basic Express based Auth System using 
+# Authentication System in Express
+-- Basic Auth System
 -- JSON Web Token
 -- Cookie Parser
