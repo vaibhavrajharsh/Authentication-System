@@ -53,16 +53,14 @@ npm install express mongoose jsonwebtoken cookie-parser bcryptjs dotenv
 authentication-system/
 │
 ├── controllers/
-│   └── authController.js
-│
-├── middleware/
-│   └── authMiddleware.js
+│   └── auth.controller.js
 │
 ├── models/
-│   └── User.js
+│   └── user.model.js
 │
 ├── routes/
-│   └── authRoutes.js
+│   └── auth.routes.js
+│   └── post.routes.js
 │
 ├── .env
 ├── server.js
@@ -73,8 +71,6 @@ authentication-system/
 ⚙️ Environment Variables
 
 Create a ".env" file and add:
-
-PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 
@@ -161,37 +157,7 @@ The authentication cookie is cleared during logout.
 6. Middleware verifies the token before accessing protected routes.
 7. User logs out and the cookie is removed.
 
----
 
-🔒 Example Middleware
-
-const jwt = require("jsonwebtoken");
-
-const verifyToken = (req, res, next) => {
-    const token = req.cookies.token;
-
-    if (!token) {
-        return res.status(401).json({
-            message: "Unauthorized"
-        });
-    }
-
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-        req.user = decoded;
-
-        next();
-    } catch (error) {
-        res.status(401).json({
-            message: "Invalid token"
-        });
-    }
-};
-
-module.exports = verifyToken;
-
----
 
 🔐 Security Features
 
