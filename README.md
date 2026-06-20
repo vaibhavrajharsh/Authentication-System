@@ -4,7 +4,7 @@ A secure authentication system built with **Node.js**, **Express.js**, **JSON We
 
 ---
 
-## 🚀 Features
+##  Features
 
 - User Registration
 - User Login
